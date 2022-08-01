@@ -8,7 +8,7 @@ email-ext:latest
 git:latest
 github-branch-source:latest
 gradle:latest
-ldab:latest
+ldap:latest
 mailer:latest
 matrix-auth:latest
 pam-auth:latest
@@ -19,3 +19,5 @@ timestamper:latest
 workflow-aggregator:latest
 ws-cleanup:latest
 slack:latest
+authorize-project:latest
+docker-plugin:latest
