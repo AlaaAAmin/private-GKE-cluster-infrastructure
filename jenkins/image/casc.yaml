@@ -1,0 +1,25 @@
+jenkins:
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "supergene"
+  authorizationStrategy: loggedInUsersCanDoAnything
+
+  remotingSecurity:
+    enabled: true
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+        usernamePassword:
+          description: "Docker-hub"
+          id: "blabla"
+          password: "lol"
+          scope: GLOBAL
+          username: "blabla"
+unclassified:
+  location:
+    url: http://server_ip:8080/

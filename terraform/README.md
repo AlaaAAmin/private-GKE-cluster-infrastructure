@@ -10,7 +10,7 @@
 1. Linux based, Windows or Mac os
 2. Docker
 3. GCP project with billing account
-4. Google cloud cli (gcloud) installed on your local machine [ Setup ](https://cloud.google.com/sdk/docs/install)
+4. Google cloud cli (gcloud) installed on your local machine [ installation steps ](https://cloud.google.com/sdk/docs/install)
 5. Terraform v1.2.6 and Google terraform provider v4.30.0
 
 
