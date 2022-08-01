@@ -31,7 +31,7 @@
 
 - created the Dockerfile  
 ![Docker file](./pics/docker.png "Docker file")  
-- casc  
+- configuration as code file casc.yaml  
 ![casc](./pics/casc.png "configuration file") 
 - plugins file  
 ![casc](./pics/plugins.png "configuration file") 
