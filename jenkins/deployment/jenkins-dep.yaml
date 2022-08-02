@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: jenkins-ns
+  name: jenkins-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      containers:
+      - name: jenkins-container
+        image: alaaamin/jenkins:v1.0.5full
+        # passing secrets in the environment variables
+        env: 
+          - name: JENKINS_ADMIN_ID
+            value: "admin"
+            # valueFrom: 
+            #   secretKeyRef: 
+            #     name: credits
+            #     key: jenkins-admin
+          - name: JENKINS_ADMIN_PASSWORD
+            value: "Supergene"
+            # valueFrom: 
+            #   secretKeyRef: 
+            #     name: credits
+            #     key: jenkins-pass
+          - name: DOCKER_HUB_ID
+            valueFrom: 
+              secretKeyRef: 
+                name: credits
+                key: docker-user
+          - name: DOCKER_HUB_PASS
+            valueFrom: 
+              secretKeyRef: 
+                name: credits
+                key: docker-pass
+        ports:
+          - name: http-port
+            containerPort: 8080
+          - name: jnlp-port
+            containerPort: 50000
+        volumeMounts:
+          - name: jenkins-vol
+            mountPath: /var/jenkins_vol
+      volumes:
+        - name: jenkins-vol
+          emptyDir: {}

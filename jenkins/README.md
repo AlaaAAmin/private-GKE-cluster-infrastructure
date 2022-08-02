@@ -37,8 +37,24 @@
 ![casc](./pics/plugins.png "configuration file") 
 - built the image using `docker image build -t alaaamin/jenkins:v1.0.5full .`
 - pushed the image to Docker Hub `docker push alaaamin/jenkins:v1.0.5full`
-- created kuberenets files namespace, deployment, service, secrets, persistent volume and persistent volume claim
-
+- created kuberenets files for namespace, deployment, service, secrets, persistent volume and persistent volume claim
+- opened the terminal
+- run `echo "your-username" | base64`
+- run `echo "your-password" | base64`
+- wrote the values in jenkins-secrets.yaml file
+- tested the files locally using `kubectl apply -f jenkins-ns.yaml` to create the namespace
+then `kubectl apply -Rf .` to run all of the resources
+- after insuring everything is working i uploaded the files to the bastion vm named gke-bastion using  
+`gcloud compute scp --recurse ./deployment/ gke-bastion:~/ --project="versatile-bolt-354107"`
+- ssh into the vm using the command  
+`gcloud compute ssh --zone "europe-west2-a" "gke-bastion"  --tunnel-through-iap --project "versatile-bolt-354107"`
+- changed the directory to the deployment directory then run `kubectl apply -f jenkins-ns.yaml` to create the namespace then `kubectl apply -Rf .` to run all of the resources
+- run `kubectl get services -n jenkins-ns` to get the load balancer external ip.
+- the result  
+![login page](./pics/ui.png "jenkins login page")
+- configured the bastion server as a slave to jenkins
+- run `sudo gpasswd -a $USER docker` and `newgrp docker` to make docker usable without `sudo` command
+- 
 
 ## Author
 
