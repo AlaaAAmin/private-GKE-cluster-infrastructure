@@ -8,6 +8,6 @@ resource "google_compute_firewall" "ssh-rule" {
     protocol = "tcp"
     ports    = ["22"]
   }
-  source_ranges = ["35.235.240.0/20"] # IAP CIDR
-  target_tags   = ["bastion"]
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["bastion", "builder"]
 }
