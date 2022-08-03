@@ -19,8 +19,7 @@
 - a private compute instace as a bastion server and a slave node for jenkins
 - private GKE cluster.
 - 2 service account. one for bastion server that will have access to the cluster control plane  
-and service account for the cluster to create and communicate with the nodes  
-![infrastructure](./pics/network.png "infrastructure")
+and service account for the cluster to create and communicate with the nodes
 
 ## Kubernetes deployment overview
 
